@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/construction-photo-manager-6l8m09]
   workflow_dispatch:
 
 permissions:
