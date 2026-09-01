@@ -2,8 +2,12 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// GitHub Pages project site is served at /<repo>/ — this repo is named "-".
+const base = process.env.GITHUB_PAGES === 'true' ? '/-/' : '/'
+
 // https://vite.dev/config/
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -16,8 +20,8 @@ export default defineConfig({
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         lang: 'ko',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
